@@ -1,4 +1,4 @@
-import { getWorkshops, logout } from '../fetch-utils.js';
+import { createParticipant, getWorkshops, logout } from '../fetch-utils.js';
 import { renderOption } from '../render-utils.js';
 
 const logOut = document.getElementById('logout-create');
@@ -6,13 +6,6 @@ const backBtn = document.getElementById('back');
 const participantForm = document.querySelector('form');
 const shopOption = document.getElementById('select');
 
-participantForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const data = new FormData(participantForm);
-
-    
-});
 
 async function renderOptions() {
     const workshops = await getWorkshops();
@@ -23,6 +16,14 @@ async function renderOptions() {
         shopOption.append(newOption);
     }
 }
+
+participantForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = new FormData(participantForm);
+
+    await createParticipant({ name: data.get('participant-name'), contact_info: data.get('participant-contact'), workshop_id: data.get('workshop-id') });
+});
 
 renderOptions();
 

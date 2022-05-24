@@ -43,7 +43,9 @@ export async function deleteParticipant(id) {
     return checkError(response);
 }
 
-
+export async function createParticipant(participant) {
+    const response = client.from('participants').insert(participant);
+}
 
 export async function logout() {
     await client.auth.signOut();
