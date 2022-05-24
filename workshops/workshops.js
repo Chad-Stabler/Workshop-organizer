@@ -1,4 +1,4 @@
-import { checkAuth, getWorkshops, logout } from '../fetch-utils.js';
+import { checkAuth, getWorkshops, logout, deleteParticipant } from '../fetch-utils.js';
 
 const workshopsEl = document.querySelector('.workshop-container');
 
@@ -20,6 +20,10 @@ async function displayWorkshops() {
             const li = document.createElement('li');
             li.classList.add('participant');
             li.textContent = `${participant.name}: ${participant.contact_info}`;
+            li.addEventListener('click', async () => {
+                await deleteParticipant(participant.id);
+                displayWorkshops();
+            });
             participantList.append(li);
         }
         shopDiv.append(name, participantList);

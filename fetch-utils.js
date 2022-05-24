@@ -37,6 +37,10 @@ export async function signInUser(email, password) {
     return response.user;
 }
 
+export async function deleteParticipant(id) {
+    const response = await client.from('participants').delete().eq('id', id);
+}
+
 export async function logout() {
     await client.auth.signOut();
 
