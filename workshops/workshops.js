@@ -1,15 +1,29 @@
 import { checkAuth, getWorkshops, logout } from '../fetch-utils.js';
-import { renderWorkshop } from '../render-utils.js';
 
-const mainEl = document.querySelector('main');
+const workshopsEl = document.querySelector('.workshop-container');
 
-async function onLoad() {
-    mainEl.textContent = '';
-    const data = await getWorkshops();
+async function displayWorkshops() {
+    workshopsEl.textContent = '';
+    const workshops = await getWorkshops();
 
-    for (let workshop of data) {
-        const shopDiv = renderWorkshop(workshop);
-        mainEl.append(shopDiv);
+    for (let workshop of workshops) {
+        const shopDiv = document.createElement('div');
+        shopDiv.classList.add('workshop');
+        
+        const name = document.createElement('h3');
+    
+        name.textContent = workshop.name;
+    
+        const participantList = document.createElement('ul');
+    
+        for (let participant of workshop.participants) {
+            const li = document.createElement('li');
+            li.classList.add('participant');
+            li.textContent = `${participant.name}: ${participant.contact_info}`;
+            participantList.append(li);
+        }
+        shopDiv.append(name, participantList);
+        workshopsEl.append(shopDiv);
         //display each workshop with render function
         //& append it onto the main section
     }
@@ -17,7 +31,7 @@ async function onLoad() {
 
 checkAuth();
 
-onLoad();
+displayWorkshops();
 
 const logoutButton = document.getElementById('logout');
 
