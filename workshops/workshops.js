@@ -42,3 +42,9 @@ const logoutButton = document.getElementById('logout');
 logoutButton.addEventListener('click', () => {
     logout();
 });
+
+const createButton = document.getElementById('create');
+
+createButton.addEventListener('click', () => {
+    location.replace('../participant');
+});
