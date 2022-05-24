@@ -23,6 +23,10 @@ participantForm.addEventListener('submit', async (e) => {
     const data = new FormData(participantForm);
 
     await createParticipant({ name: data.get('participant-name'), contact_info: data.get('participant-contact'), workshop_id: data.get('workshop-id') });
+
+    participantForm.reset();
+
+    location.replace('../workshops');
 });
 
 renderOptions();
