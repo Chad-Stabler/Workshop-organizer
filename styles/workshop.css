@@ -19,7 +19,10 @@ body {
     --footer-height: 25px;
     
     font-family: 'Titillium Web', sans-serif;
-    background-color: var(--color2);
+    background-color: yellowgreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 main {
@@ -27,7 +30,27 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: beige;
     margin-bottom: calc(var(--footer-height));
+    width: fit-content;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.workshop li {
+    display: flex;
+    width: fit-content;
+    padding: 0px 3px;
+}
+
+.workshop li:hover {
+    background-color: rgba(241, 11, 11, 0.314);
+    cursor: pointer;
+}
+
+.workshop li:hover::after {
+    content: '🚫'
 }
 
 section {
@@ -47,10 +70,11 @@ section {
 
 header {
     display: flex;
-    justify-content: flex-end;
-    background-color: var(--color3);
+    justify-content: space-evenly;
+    background-color: rgba(241, 11, 11, 0.814);
     height: var(--header-height);
     box-shadow: var(--shadow);
+    width: 100%;
 }
 
 h2 {
@@ -60,10 +84,6 @@ h2 {
 
 .gutter-right {
     margin-right: 20px;
-}
-
-.main-logo {
-    animation: pulse 5s infinite ease-in-out;
 }
 
 header img {
@@ -105,10 +125,9 @@ footer {
 
   }
 
-#logout {
-    position: fixed;
-    right: 20px;
-    top: 90px;
+button {
+    margin: 15px;
+    height: 20px;
 }
 
 .auth-main {

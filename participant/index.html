@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/create.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <button id="logout-create">Logout</button>
+        <button id="back">Back to the workshops</button>
+    </header>
+    <main>
+        <h2>Add new participant</h2>
+        <form class="form">
+            <label>
+                Participant name: 
+                <input type="text" name="participant-name">
+            </label>
+            <label>
+                Participant contact info:
+                <input type="text" name="participant-contact">
+            </label>
+            <label>
+                Workshop: 
+                <select name="workshop-id" id="select"></select>
+            </label>
+            <button>Add Participant</button>
+        </form>
+    </main>
+</body>
+<script type="module" src="./participant.js"></script>
+</html>
