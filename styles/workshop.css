@@ -38,6 +38,21 @@ main {
     border-radius: 5px;
 }
 
+.workshop li {
+    display: flex;
+    width: fit-content;
+    padding: 0px 3px;
+}
+
+.workshop li:hover {
+    background-color: rgba(241, 11, 11, 0.314);
+    cursor: pointer;
+}
+
+.workshop li:hover::after {
+    content: '🚫'
+}
+
 section {
     background-color: var(--color5);
     width: 1000px;
